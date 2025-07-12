@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Alert Chile</title>
+    <link rel="icon" type="image/png" href="Imagenes/Favicon.png">
+    
+</head>
+
+<body>
+    <header>
+        <img src="Imagenes/Logo_Blue_Alert.png" alt="Logo Blue Alert" class="logo">
+    </header>
+    
+    <main>
+        <h1>Blue Alert Chile</h1>
+        
+        <div class="descripcion">
+            <p>"Blue Alert es una iniciativa que desarrolla tecnología de teledetección para monitorear sistemas ecológicos, estudiar sus dinámicas y transferir este conocimiento a la comunidad."</p>
+        </div>
+        
+        <a href="https://www.instagram.com/blue_alert/" class="instagram">
+            Síguenos en Instagram @blue_alert
+        </a>
+    </main>
+
+    <footer>
+        <div>Contacto: <span class="contacto">edguajardo@bluealertchile.com</span></div>
+        <div>© 2023 Blue Alert Chile</div>
+    </footer>
+</body>
+</html>
