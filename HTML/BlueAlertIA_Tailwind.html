@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Alert Chile - Monitoreo de Sistemas Ecológicos</title>
+  <link rel="icon" type="image/png" href="Imagenes/Favicon.png">
+  <link rel="stylesheet" href="CSS/output.css">
+  <style>
+    :root {
+      --primary-color: #ffa12a;
+      --secondary-color: #004b97;
+      --accent-color: #4ecdc4;
+      --text-color: #333;
+      --light-bg: #3571ca;
+    }
+    </style>
+</head>
+
+<body class="font-sans text-[var(--text-color)] bg-[var(--light-bg)] leading-relaxed">
+
+  <!-- Skip to Main Content Link -->
+  <a href="#main-content"
+     class="absolute left-0 -top-10 bg-[var(--primary-color)] text-white px-4 py-2 rounded-br-md font-bold focus:top-0 transition-all z-50">
+     Saltar al contenido principal
+  </a>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 h-28 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] shadow-md">
+    <div class="flex flex-wrap items-center justify-evenly px-4 py-2">
+      <div class="max-w-lg mx-auto">
+        <a href="#main-content">
+          <img src="Imagenes/Logo_Blue_Alert.png" alt="Logo Blue Alert Chile" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+        </a>
+      </div>
+      <nav class="flex space-x-4">
+        <h2><a href="#main-content" class="text-white font-medium px-3 py-1 rounded hover:bg-white/20">Inicio</a></h2>
+        <h2><a href="MapaBA.html" class="text-white font-medium px-3 py-1 rounded hover:bg-white/20">Mapa</a></h2>
+        <h2><a href="#" class="text-white font-medium px-3 py-1 rounded hover:bg-white/20">Noticias</a></h2>
+        <h2><a href="#" class="text-white font-medium px-3 py-1 rounded hover:bg-white/20">Contacto</a></h2>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main id="main-content" class="max-w-3xl mx-auto my-8 px-5">
+
+    <!-- Initial Statement -->
+    <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-[var(--accent-color)] mb-8 text-lg">
+      <h2 class="text-2xl font-semibold mb-4">¿Qué es Blue Alert Chile?</h2>
+      <p>
+        "Blue Alert es una iniciativa privada que apunta al desarrollo tecnológico, libre y transparente. 
+        Enfocados en teledetección y análisis estadísticos, para el monitoreo de sistemas ecológicos, 
+        el estudio de sus dinámicas y la transferencia de este conocimiento para su manejo y conservación."
+      </p>
+    </div>
+
+    <!-- Features -->
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 my-12">
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition-transform hover:-translate-y-1">
+        <h3 class="text-[var(--primary-color)] font-semibold text-xl mb-3">
+          <a href="MonitoreoSatelital.html" class="hover:underline">Monitoreo Satelital</a>
+        </h3>
+        <p>Tecnología avanzada para el seguimiento espaciotemporal de sistemas ecológicos, mediante imágenes satelitales. Con especial énfasis en sistemas costeros y marinos.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition-transform hover:-translate-y-1">
+        <h3 class="text-[var(--primary-color)] font-semibold text-xl mb-3">
+          <a href="AnalisisCientifico.html" class="hover:underline">Análisis Científico</a>
+        </h3>
+        <p>Estudio de las dinámicas de sistemas ecológicos, mediante procesamiento de datos y su análisis, a través de acercamientos frecuentistas y bayesianos, paramétricos y no paramétricos.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition-transform hover:-translate-y-1">
+        <h3 class="text-[var(--primary-color)] font-semibold text-xl mb-3"><a href="#" class="hover:underline">Transferencia</a></h3>
+        <p>Algunos datos (ej: los nuestros) son de libre acceso, mientras que otros más sensibles requieren protocolos de seguridad. Compartimos conocimiento respetando la privacidad, fomentando observatorios de datos abiertos y un ecosistema de progreso con énfasis en conservación ambiental.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition-transform hover:-translate-y-1">
+        <h3 class="text-[var(--primary-color)] font-semibold text-xl mb-3"><a href="#" class="hover:underline">Colaboración</a></h3>
+        <p>Fomentamos colaboración y trabajo en equipo. Valoramos el equilibrio colectivo, incentivando inclusión, intercambio de conocimiento, creación de redes de apoyo comunitarias y alianzas público-privadas.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition-transform hover:-translate-y-1">
+        <h3 class="text-[var(--primary-color)] font-semibold text-xl mb-3"><a href="#" class="hover:underline">Transparencia</a></h3>
+        <p>Seguimos principios de ciencia libre y replicable, ofreciendo información confiable y transparente para una toma de decisiones fundamentada.</p>
+      </div>
+    </div>
+
+    <!-- Social -->
+    <div class="flex items-center justify-center gap-4 my-12 text-white">
+      <p class="text-lg">Síguenos en redes sociales:</p>
+      <a href="https://www.instagram.com/blue_alert/" target="_blank" 
+         class="inline-flex items-center gap-2 px-5 py-2 bg-[var(--primary-color)] hover:bg-[var(--secondary-color)] rounded-full shadow-md transition-transform hover:-translate-y-1">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-5 h-5">
+        @blue_alert
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--secondary-color)] text-white text-center py-6 mt-8">
+    <div class="mb-4">
+      Contacto: 
+      <a href="mailto:edguajardo@bluealertchile.com" class="text-[var(--accent-color)] font-medium hover:underline">edguajardo@bluealertchile.com</a>
+    </div>
+    <div class="text-sm opacity-80">
+      &copy; 2023 Blue Alert Chile. Todos los derechos reservados.
+      <p class="mt-1 italic">"No compitas, haz cumpitas"</p>
+    </div>
+  </footer>
+
+</body>
+</html>

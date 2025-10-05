@@ -1,0 +1,34 @@
+
+    @import "tailwindcss";
+    
+    :root {
+      --primary-color: #ffa12a;
+      --secondary-color: #004b97;
+      --accent-color: #4ecdc4;
+      --text-color: #333;
+      --light-bg: #3571ca;
+    }
+
+    /* Animaciones para el modal */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    
+    .slide-in {
+      animation: slideIn 0.5s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    /* Overlay para el modal */
+    .modal-overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
