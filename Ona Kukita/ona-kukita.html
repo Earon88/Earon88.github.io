@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'Oña Kukita — Mermeladas Caseras</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav>
+    <span class="nav-logo">'<span>Oña</span> Kukita</span>
+    <ul>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badges">
+        <span class="badge">100% Casero</span>
+        <span class="badge green">Sin conservantes</span>
+        <span class="badge orange">Artesanal</span>
+      </div>
+      <h1>
+        Mermeladas
+        <em>con alma</em>
+        de hogar
+      </h1>
+      <p>Preparadas con frutas frescas, amor y recetas de siempre. Cada frasco es un pequeño tesoro lleno de sabor natural.</p>
+      <a href="#catalogo" class="btn-primary">Ver catálogo</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stamp">
+        <!-- Imagen del logo -->
+        <img src="imagenes/Logo.jpeg" alt="'Oña Kukita Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="about" id="nosotros">
+  <div class="about-inner">
+    <div class="section-tag">Nuestra historia</div>
+    <h2>Hecho con amor,<br>en cada frasco</h2>
+    <p>En 'Oña Kukita elaboramos mermeladas artesanales con recetas de familia, usando solo fruta fresca y los mejores ingredientes naturales. Sin aditivos, sin prisa. Solo el sabor honesto de lo casero.</p>
+    <div class="about-dots">
+      <div class="dot-item">
+        <span class="dot-num">100%</span>
+        <span class="dot-label">Natural</span>
+      </div>
+      <div class="dot-item">
+        <span class="dot-num">+10</span>
+        <span class="dot-label">Variedades</span>
+      </div>
+      <div class="dot-item">
+        <span class="dot-num">0</span>
+        <span class="dot-label">Conservantes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section class="catalog" id="catalogo">
+  <div class="catalog-header">
+    <div>
+      <div class="section-tag">Nuestros productos</div>
+      <h2>Catálogo<br>de temporada</h2>
+    </div>
+    <p>Precios por frasco de 400g. Consulta disponibilidad y pedidos personalizados por WhatsApp.</p>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="filtrar(this,'todos')">Todos</button>
+    <button class="filter-btn" onclick="filtrar(this,'frutal')">Frutal</button>
+    <button class="filter-btn" onclick="filtrar(this,'citrico')">Cítrico</button>
+    <button class="filter-btn" onclick="filtrar(this,'especial')">Especiales</button>
+  </div>
+
+  <div class="products-grid" id="products-grid">
+
+    <!-- Frutilla -->
+    <div class="product-card" data-cat="frutal">
+      <div class="product-img" style="background: linear-gradient(135deg,#FFEAEA,#FFD0D0);">
+        <span class="product-tag popular">Popular</span>
+         <!-- esta imagen puede ser real-->
+        <svg class="jar-svg" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="32" y="8" width="36" height="10" rx="3" fill="#3D1408"/>
+          <rect x="28" y="17" width="44" height="6" rx="2" fill="#5C2010"/>
+          <path d="M22 28 Q20 32 20 40 L20 110 Q20 118 28 120 L72 120 Q80 118 80 110 L80 40 Q80 32 78 28 Z" fill="#C0321F"/>
+          <path d="M22 28 Q30 34 40 30 Q50 26 60 30 Q70 34 78 28 L78 38 Q68 32 58 36 Q50 40 42 36 Q32 32 22 38 Z" fill="#5C2010"/>
+          <path d="M22 60 Q35 54 50 60 Q65 66 78 58 L78 110 Q78 116 72 118 L28 118 Q22 116 22 110 Z" fill="#C0321F"/>
+          <path d="M22 68 Q35 62 50 68 Q65 74 78 66 L78 76 Q66 70 52 78 Q38 86 22 76 Z" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="38" cy="95" r="5" fill="rgba(255,255,255,0.25)"/>
+          <circle cx="55" cy="103" r="4" fill="rgba(255,255,255,0.25)"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Frutilla</div>
+        <div class="product-desc">Clásica y dulce, con trozos de frutilla fresca del sur de Chile.</div>
+        <div class="product-footer">
+          <div class="product-price">$3.500 <span class="unit">/ 400g</span></div>
+          <button class="btn-add" onclick="agregar('Frutilla')">+ Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mora -->
+    <div class="product-card" data-cat="frutal">
+      <div class="product-img" style="background: linear-gradient(135deg,#EDE0FF,#D4C0F5);">
+        <span class="product-tag nuevo">Nuevo</span>
+        <svg class="jar-svg" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="32" y="8" width="36" height="10" rx="3" fill="#3D1408"/>
+          <rect x="28" y="17" width="44" height="6" rx="2" fill="#5C2010"/>
+          <path d="M22 28 Q20 32 20 40 L20 110 Q20 118 28 120 L72 120 Q80 118 80 110 L80 40 Q80 32 78 28 Z" fill="#6B2D8A"/>
+          <path d="M22 28 Q30 34 40 30 Q50 26 60 30 Q70 34 78 28 L78 38 Q68 32 58 36 Q50 40 42 36 Q32 32 22 38 Z" fill="#5C2010"/>
+          <path d="M22 62 Q35 56 50 62 Q65 68 78 60 L78 110 Q78 116 72 118 L28 118 Q22 116 22 110 Z" fill="#6B2D8A"/>
+          <path d="M22 70 Q35 64 50 70 Q65 76 78 68 L78 78 Q66 72 52 80 Q38 88 22 78 Z" fill="rgba(255,255,255,0.25)"/>
+          <circle cx="40" cy="97" r="5" fill="rgba(255,255,255,0.2)"/>
+          <circle cx="58" cy="105" r="4" fill="rgba(255,255,255,0.2)"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Mora silvestre</div>
+        <div class="product-desc">Intensa y levemente ácida. Recogida en los campos del sur.</div>
+        <div class="product-footer">
+          <div class="product-price">$3.900 <span class="unit">/ 400g</span></div>
+          <button class="btn-add" onclick="agregar('Mora silvestre')">+ Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Damasco -->
+    <div class="product-card" data-cat="frutal">
+      <div class="product-img" style="background: linear-gradient(135deg,#FFF3D0,#FFE0A0);">
+        <svg class="jar-svg" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="32" y="8" width="36" height="10" rx="3" fill="#3D1408"/>
+          <rect x="28" y="17" width="44" height="6" rx="2" fill="#5C2010"/>
+          <path d="M22 28 Q20 32 20 40 L20 110 Q20 118 28 120 L72 120 Q80 118 80 110 L80 40 Q80 32 78 28 Z" fill="#E87D1E"/>
+          <path d="M22 28 Q30 34 40 30 Q50 26 60 30 Q70 34 78 28 L78 38 Q68 32 58 36 Q50 40 42 36 Q32 32 22 38 Z" fill="#5C2010"/>
+          <path d="M22 62 Q35 56 50 62 Q65 68 78 60 L78 110 Q78 116 72 118 L28 118 Q22 116 22 110 Z" fill="#E87D1E"/>
+          <path d="M22 70 Q35 64 50 70 Q65 76 78 68 L78 78 Q66 72 52 80 Q38 88 22 78 Z" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="40" cy="97" r="5" fill="rgba(255,255,255,0.25)"/>
+          <circle cx="58" cy="105" r="4" fill="rgba(255,255,255,0.25)"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Damasco</div>
+        <div class="product-desc">Dulce y fragante, con ese amarillo dorado de verano.</div>
+        <div class="product-footer">
+          <div class="product-price">$3.500 <span class="unit">/ 400g</span></div>
+          <button class="btn-add" onclick="agregar('Damasco')">+ Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Naranja -->
+    <div class="product-card" data-cat="citrico">
+      <div class="product-img" style="background: linear-gradient(135deg,#FFF0DC,#FFD89A);">
+        <svg class="jar-svg" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="32" y="8" width="36" height="10" rx="3" fill="#3D1408"/>
+          <rect x="28" y="17" width="44" height="6" rx="2" fill="#5C2010"/>
+          <path d="M22 28 Q20 32 20 40 L20 110 Q20 118 28 120 L72 120 Q80 118 80 110 L80 40 Q80 32 78 28 Z" fill="#D4692A"/>
+          <path d="M22 28 Q30 34 40 30 Q50 26 60 30 Q70 34 78 28 L78 38 Q68 32 58 36 Q50 40 42 36 Q32 32 22 38 Z" fill="#5C2010"/>
+          <path d="M22 62 Q35 56 50 62 Q65 68 78 60 L78 110 Q78 116 72 118 L28 118 Q22 116 22 110 Z" fill="#D4692A"/>
+          <path d="M22 70 Q35 64 50 70 Q65 76 78 68 L78 78 Q66 72 52 80 Q38 88 22 78 Z" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="40" cy="97" r="5" fill="rgba(255,255,255,0.25)"/>
+          <circle cx="58" cy="105" r="4" fill="rgba(255,255,255,0.25)"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Naranja amarga</div>
+        <div class="product-desc">Clásica mermelada británica con cáscara y un toque cítrico.</div>
+        <div class="product-footer">
+          <div class="product-price">$3.700 <span class="unit">/ 400g</span></div>
+          <button class="btn-add" onclick="agregar('Naranja amarga')">+ Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Limón -->
+    <div class="product-card" data-cat="citrico">
+      <div class="product-img" style="background: linear-gradient(135deg,#FFFDE0,#FFFAAA);">
+        <svg class="jar-svg" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="32" y="8" width="36" height="10" rx="3" fill="#3D1408"/>
+          <rect x="28" y="17" width="44" height="6" rx="2" fill="#5C2010"/>
+          <path d="M22 28 Q20 32 20 40 L20 110 Q20 118 28 120 L72 120 Q80 118 80 110 L80 40 Q80 32 78 28 Z" fill="#C8BB28"/>
+          <path d="M22 28 Q30 34 40 30 Q50 26 60 30 Q70 34 78 28 L78 38 Q68 32 58 36 Q50 40 42 36 Q32 32 22 38 Z" fill="#5C2010"/>
+          <path d="M22 62 Q35 56 50 62 Q65 68 78 60 L78 110 Q78 116 72 118 L28 118 Q22 116 22 110 Z" fill="#C8BB28"/>
+          <path d="M22 70 Q35 64 50 70 Q65 76 78 68 L78 78 Q66 72 52 80 Q38 88 22 78 Z" fill="rgba(255,255,255,0.35)"/>
+          <circle cx="40" cy="97" r="5" fill="rgba(255,255,255,0.28)"/>
+          <circle cx="58" cy="105" r="4" fill="rgba(255,255,255,0.28)"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Limón con jengibre</div>
+        <div class="product-desc">Cítrica y especiada, perfecta para acompañar quesos y tostadas.</div>
+        <div class="product-footer">
+          <div class="product-price">$4.200 <span class="unit">/ 400g</span></div>
+          <button class="btn-add" onclick="agregar('Limón con jengibre')">+ Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Próximamente -->
+    <div class="product-card coming-soon" data-cat="especial">
+      <div class="product-img" style="background: linear-gradient(135deg,#F0EDE8,#E5E0D8);">
+        <span class="product-tag pronto">Próximamente</span>
+        <svg class="jar-svg" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="32" y="8" width="36" height="10" rx="3" fill="#AAA"/>
+          <rect x="28" y="17" width="44" height="6" rx="2" fill="#BBB"/>
+          <path d="M22 28 Q20 32 20 40 L20 110 Q20 118 28 120 L72 120 Q80 118 80 110 L80 40 Q80 32 78 28 Z" fill="#CCC"/>
+          <path d="M22 28 Q30 34 40 30 Q50 26 60 30 Q70 34 78 28 L78 38 Q68 32 58 36 Q50 40 42 36 Q32 32 22 38 Z" fill="#BBB"/>
+          <text x="50" y="90" text-anchor="middle" font-family="Georgia,serif" font-size="28" fill="#999">?</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Próximo sabor</div>
+        <div class="product-desc">Estamos preparando una nueva mermelada especial de temporada. ¡Muy pronto!</div>
+        <div class="product-footer">
+          <span class="price-soon">Precio por confirmar</span>
+          <button class="btn-add" style="opacity:0.5;cursor:not-allowed;">Pronto</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contacto">
+  <h2>¿Quieres hacer un pedido?</h2>
+  <p>Contáctanos por WhatsApp para consultar disponibilidad, precios de mayoreo o personalizaciones especiales.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/56912345678?text=Hola!%20Vi%20el%20catálogo%20de%20'Oña%20Kukita%20y%20me%20gustaría%20hacer%20un%20pedido" class="btn-whatsapp" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribir por WhatsApp
+    </a>
+    <a href="mailto:onakukita@email.com" class="btn-outline">Enviar correo</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="nav-logo">'<span>Oña</span> Kukita</span>
+      <p>Mermeladas artesanales elaboradas con fruta fresca, recetas de familia y mucho cariño. Desde nuestro hogar al tuyo.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Productos</h4>
+      <ul>
+        <li>Mermeladas frutales</li>
+        <li>Mermeladas cítricas</li>
+        <li>Ediciones especiales</li>
+        <li>Pack regalo</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li>WhatsApp: +56 9 XXXX XXXX</li>
+        <li>Instagram: @onakukita</li>
+        <li>Chillán, Chile</li>
+        <li>Despacho a domicilio</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 'Oña Kukita — Mermeladas Caseras. Todos los derechos reservados.</p>
+    <p>Hecho con amor en Chillán, Chile 🇨🇱</p>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- JavaScript externo -->
+<script src="js/main.js"></script>
+</body>
+</html>
