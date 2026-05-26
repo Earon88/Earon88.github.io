@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blue Alert Chile - Mapa con GeoJSON</title>
+  <title>Blue Alert - Mapa Interactivo</title>
   <link rel="icon" type="image/png" href="Imagenes/Favicon.png">
   <link rel="stylesheet" href="CSS/output.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
@@ -45,11 +45,11 @@
 
   
   <!--map-->
-  <main id="main-content" class="relative"> 
-    <div id="map" class="absolute inset-0"></div>
+  <main id="main-content" class="relative w-full bg-gray-100" style="height: 70hv; min-height: 400px;"> 
+    <div id="map" class="w-full h-full"></div>
     
     <!-- Control deslizante para trimestres con botón de reproducción -->
-    <div class="absolute bottom-5 left-5 z-[1000] bg-white/90 p-4 rounded-lg shadow-md min-w-[300px]">
+    <div style="position: absolute; bottom: 20px; left: 20px; z-index: 40;" class="bg-white/95 p-4 rounded-lg shadow-lg min-w-[300px]">
       <div class="flex justify-between items-center mb-3">
         <h3 class="m-0 text-base text-gray-800">Selecciona el trimestre</h3>
         <div class="flex items-center space-x-2">
@@ -70,7 +70,7 @@
     </div>
     
     <!-- Control de capas base - Ahora desplegable -->
-    <div class="absolute top-24 right-3 z-40">
+    <div style="position: absolute; top: 25px; right: 20px; z-index: 20;" class="max-w-xs">
       <!-- Botón para desplegar/contraer -->
       <button id="layer-toggle" class="bg-white/90 text-gray-800 p-2 rounded-lg shadow-md flex items-center gap-2 hover:bg-gray-100 transition-colors">
         <i class="fas fa-layer-group"></i>
@@ -79,17 +79,17 @@
       </button>
       
       <!-- Panel de capas (inicialmente oculto) -->
-      <div id="layer-panel" class="bg-white/90 p-3 rounded-lg shadow-md mt-2 hidden w-48">
-        <h4 class="m-0 mb-2 text-sm text-gray-800 font-semibold">Tipo de Mapa</h4>
-        <button id="streets-btn" class="w-full text-left px-3 py-2 mb-1 rounded bg-gray-100 hover:bg-gray-200 transition-colors active:bg-primary active:text-white">
+      <div id="layer-panel" class="bg-white/90 p-2 rounded-lg shadow-md mt-2 hidden w-44">
+        <h4 class="m-0 mb-2 text-xs text-gray-800 font-semibold">Tipo de Mapa</h4>
+        <button id="streets-btn" class="w-full text-left px-2 py-1.5 mb-1 rounded text-sm bg-gray-100 hover:bg-gray-200 transition-colors active:bg-primary active:text-white">
           Calles
         </button>
-        <button id="satellite-btn" class="w-full text-left px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 transition-colors">
+        <button id="satellite-btn" class="w-full text-left px-2 py-1.5 rounded text-sm bg-gray-100 hover:bg-gray-200 transition-colors">
           Satélite
         </button>
         
-        <h4 class="m-0 my-2 text-sm text-gray-800 font-semibold pt-2 border-t border-gray-200">Capa de Datos</h4>
-        <button id="canopy-btn" class="w-full text-left px-3 py-2 rounded bg-gray-100 hover:bg-gray-200 transition-colors active:bg-primary active:text-white">
+        <h4 class="m-0 my-1.5 text-xs text-gray-800 font-semibold pt-2 border-t border-gray-200">Capa de Datos</h4>
+        <button id="canopy-btn" class="w-full text-left px-2 py-1.5 rounded text-sm bg-gray-100 hover:bg-gray-200 transition-colors active:bg-primary active:text-white">
           Dosel flotante
         </button>
       </div>
@@ -213,6 +213,6 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   
   <!-- JavaScript externo -->
-  <script src="js/mapa.js"></script>
+  <script src="js/mapa_git.js"></script>
 </body>
 </html>
