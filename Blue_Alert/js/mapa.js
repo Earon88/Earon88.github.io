@@ -28,6 +28,31 @@ let allYearqtrs = [];
 let yearqtrToYearMap = new Map();
 let currentYearLoaded = null;
 
+// Función para convertir trimestres a estaciones
+function quarterToSeason(yearqtr) {
+  let quarter = '';
+  
+  if (yearqtr.includes('-')) {
+    quarter = yearqtr.split('-')[1];
+  } else if (yearqtr.includes(' ')) {
+    quarter = yearqtr.split(' ')[1];
+  } else {
+    quarter = yearqtr.substring(4);
+  }
+
+  const seasonMap = {
+    'Q1': 'Verano',
+    'Q2': 'Otoño',
+    'Q3': 'Invierno',
+    'Q4': 'Primavera'
+  };
+
+  const season = seasonMap[quarter] || quarter;
+  const year = yearqtr.split(/[-\s]/)[0];
+  
+  return `${year} ${season}`;
+}
+
 // Función para mostrar mensajes de error
 function showErrorMessage(message) {
   let errorDiv = document.getElementById('error-message');
@@ -293,7 +318,7 @@ async function initialize() {
     slider.value = initialIndex;
     
     const initialYearqtr = allYearqtrs[initialIndex];
-    sliderValue.textContent = `Trimestre: ${initialYearqtr}`;
+    sliderValue.textContent = `Trimestre: ${quarterToSeason(initialYearqtr)}`;
     
     await updateMap(initialYearqtr);
     
@@ -303,7 +328,7 @@ async function initialize() {
     slider.addEventListener('input', async function() {
       const index = parseInt(this.value);
       const selectedYearQtr = allYearqtrs[index];
-      sliderValue.textContent = `Trimestre: ${selectedYearQtr}`;
+      sliderValue.textContent = `Trimestre: ${quarterToSeason(selectedYearQtr)}`;
       
       if (canopyLayerVisible) {
         await updateMap(selectedYearQtr);
