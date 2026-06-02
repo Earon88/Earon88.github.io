@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Pintado - Tienda Oficial</title>
+    <style>
+        /* --- VARIABLES Y PALETA DE COLORES --- */
+        :root {
+            /* Basado en el logo */
+            --primary-blue: #00337F;
+            --primary-red: #FF0000;
+            --white: #FFFFFF;
+            
+            /* Tema Claro (Default) */
+            --bg-body: #f4f4f4;
+            --bg-header: #ffffff;
+            --bg-sidebar: #ffffff;
+            --text-main: #333333;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tema Oscuro */
+        body.dark-mode {
+            --bg-body: #121212;
+            --bg-header: #1e1e1e;
+            --bg-sidebar: #1e1e1e;
+            --text-main: #e0e0e0;
+            --border-color: #333333;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- RESET Y ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER (LOGOTIPO) --- */
+        header {
+            background-color: var(--bg-header);
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilo para la imagen del logo */
+        /* Por defecto (Modo Claro): Mostrar light-logo, Ocultar dark-logo */
+        .light-logo {
+            display: block;
+        }
+        .dark-logo {
+            display: none;
+        }
+
+        /* Modo Oscuro activado: Ocultar light-logo, Mostrar dark-logo */
+        body.dark-mode .light-logo {
+            display: none;
+        }
+        body.dark-mode .dark-logo {
+            display: block;
+        }
+
+        /* Ajuste opcional: Si tu versión oscura tiene fondo transparente */
+        body.dark-mode .dark-logo {
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); /* Brillo sutil */
+        }
+
+        
+        .logo-img {
+            height: 70px; /* Ajusta la altura según tu imagen */
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        
+        /* En modo oscuro, darle un poco de contraste al logo si tiene fondo blanco */
+        body.dark-mode .logo-img {
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+        }
+
+        /* Botón Toggle Dark Mode */
+        .theme-toggle {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .theme-toggle:hover {
+            opacity: 0.8;
+        }
+
+        /* --- LAYOUT PRINCIPAL (FLEX) --- */
+        .main-container {
+            display: flex;
+            flex: 1;
+            max-width: 1400px;
+            margin: 20px auto;
+            width: 95%;
+            gap: 20px;
+        }
+
+        /* --- SIDEBAR / MENÚ DESPLEGABLE --- */
+        aside {
+            width: 250px;
+            background-color: var(--bg-sidebar);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            height: fit-content;
+            flex-shrink: 0;
+            transition: background-color 0.3s;
+        }
+
+        .menu-title {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 10px;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+        }
+
+        .menu-header {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .submenu {
+            display: none; /* Oculto por defecto */
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        .submenu.open {
+            display: block;
+        }
+
+        .submenu li {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .submenu li:hover {
+            color: var(--primary-red);
+            padding-left: 15px;
+        }
+
+        .arrow {
+            font-size: 0.8rem;
+        }
+
+        /* --- CONTENIDO PRINCIPAL (PRODUCTOS) --- */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, var(--primary-blue), #0056b3);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .hero-banner h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Grid de productos */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: var(--bg-sidebar);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            text-align: center;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            background-color: #ddd;
+            height: 150px;
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 3rem;
+        }
+
+        .product-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .btn-buy {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+        }
+        .btn-buy:hover {
+            opacity: 0.8;
+        }
+
+        /* --- RESPONSIVE (CELULARES) --- */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .logo-img {
+                height: 50px; /* Logo más pequeño en celulares */
+                max-width: 150px;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            .menu-header {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <!-- Logo para modo Claro -->
+            <img src="imagenes/LOGO1.jpg" alt="Todo Pintado Logo Claro" class="logo-img light-logo">
+            
+            <!-- Logo para modo Oscuro -->
+            <img src="imagenes/LOGO1.png" alt="Todo Pintado Logo Oscuro" class="logo-img dark-logo">
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Modo Oscuro</button>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="main-container">
+
+        <!-- SIDEBAR MENU -->
+        <aside>
+            <div class="menu-title">Catálogo</div>
+
+            <!-- Item 1: Ropa -->
+            <div class="menu-item">
+                <div class="menu-header" onclick="toggleMenu('submenu-ropa')">
+                    <span>👕 Ropa</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <ul class="submenu open" id="submenu-ropa">
+                    <li>Gorros</li>
+                    <li>Poleras</li>
+                    <li>Pantalones</li>
+                    <li>Buzos</li>
+                </ul>
+            </div>
+
+            <!-- Item 2: Accesorios -->
+            <div class="menu-item">
+                <div class="menu-header" onclick="toggleMenu('submenu-accesorios')">
+                    <span>🎒 Accesorios</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <ul class="submenu" id="submenu-accesorios">
+                    <li>Banderines</li>
+                    <li>Stickers</li>
+                    <li>Llaveros</li>
+                    <li>Otros</li>
+                </ul>
+            </div>
+
+            <!-- Item 3: Equipos -->
+            <div class="menu-item">
+                <div class="menu-header" onclick="toggleMenu('submenu-equipos')">
+                    <span>⚽ Equipos Chile</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <ul class="submenu" id="submenu-equipos">
+                    <li>Colo Colo</li>
+                    <li>Universidad de Chile</li>
+                    <li>Católica</li>
+                    <li>Everton</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <div class="hero-banner">
+                <h1>🔥 Diseño y Confección Deportiva</h1>
+                <p>Viste como un campeón con nuestra nueva colección 2026</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-img">⚽</div>
+                    <div class="product-name">Polera Local</div>
+                    <div class="product-price">$19.990</div>
+                    <button class="btn-buy">Comprar</button>
+                </div>
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-img">🧢</div>
+                    <div class="product-name">Gorro Deportivo</div>
+                    <div class="product-price">$12.500</div>
+                    <button class="btn-buy">Comprar</button>
+                </div>
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-img">🎒</div>
+                    <div class="product-name">Mochila Stickers</div>
+                    <div class="product-price">$15.990</div>
+                    <button class="btn-buy">Comprar</button>
+                </div>
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-img">👖</div>
+                    <div class="product-name">Pantalón Training</div>
+                    <div class="product-price">$24.990</div>
+                    <button class="btn-buy">Comprar</button>
+                </div>
+                <!-- Producto 5 -->
+                <div class="product-card">
+                    <div class="product-img">🏴</div>
+                    <div class="product-name">Banderín Gigante</div>
+                    <div class="product-price">$8.990</div>
+                    <button class="btn-buy">Comprar</button>
+                </div>
+                 <!-- Producto 6 -->
+                 <div class="product-card">
+                    <div class="product-img">🧣</div>
+                    <div class="product-name">Bufanda Equipo</div>
+                    <div class="product-price">$9.990</div>
+                    <button class="btn-buy">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Función para abrir/cerrar submenús
+        function toggleMenu(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('open');
+        }
+
+        // Función para cambiar tema Claro/Oscuro
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.querySelector('.theme-toggle');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                btn.textContent = '☀️ Modo Claro';
+            } else {
+                btn.textContent = '🌙 Modo Oscuro';
+            }
+        }
+    </script>
+</body>
+</html>
